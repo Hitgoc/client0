@@ -10,26 +10,26 @@ const HomePage = () => {
       <Carousel autoplay autoplaySpeed={3000}>
         <div>
           <img
-            src="/assets/images/img1.jpeg"
-            style={{ width: "100vw", height: "60vh" }}
+            src="/assets/images/i1.jpg"
+            style={{ width: "100vw", height: "120vh" }}
           />
         </div>
         <div>
           <img
-            src="/assets/images/img2.jpeg"
-            style={{ width: "100vw", height: "60vh" }}
+            src="/assets/images/i2.jpg"
+            style={{ width: "100vw", height: "120vh" }}
           />
         </div>
         <div>
           <img
-            src="/assets/images/img3.jpeg"
-            style={{ width: "100vw", height: "60vh" }}
+            src="/assets/images/i4.jpg"
+            style={{ width: "100vw", height: "120vh" }}
           />
         </div>
         <div>
           <img
-            src="/assets/images/img4.jpeg"
-            style={{ width: "100vw", height: "60vh" }}
+            src="/assets/images/i3.jpg"
+            style={{ width: "100vw", height: "120vh" }}
           />
         </div>
       </Carousel>
