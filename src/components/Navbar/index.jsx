@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Home", "Products", "About Us", "Contact Us"];
+const pages = ["Home", "Products", "Gallery", "About Us", "Contact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -23,7 +23,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "transparent" }}>
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
