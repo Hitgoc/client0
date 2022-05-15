@@ -1,10 +1,18 @@
 import React from "react";
-import HomePage from "../src/Screens/Homepage";
+import Head from "next/dist/shared/lib/head";
+import AboutPage from "../src/Screens/AboutPage";
 
 function about() {
+
+  
   return (
     <div>
-      <HomePage />
+      <Head>
+      <title>About</title>
+      <AboutPage/>
+
+      </Head>
+      
     </div>
   );
 }
