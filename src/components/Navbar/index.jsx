@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 const pages = ["Home", "Products", "About Us", "Contact Us"];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -23,7 +23,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "transparent" }}>
+    <AppBar sx={{ backgroundColor: props.navColor }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
