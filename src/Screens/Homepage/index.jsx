@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-import useWindowDimensions from "../../utilities/useWindowDimensions";
+import ContactUs from "../../components/ContactUs";
 
 const Homepage = (props) => {
   const [offset, setOffset] = useState(0);
   const [navColor, setNavColor] = useState("transparent");
 
-  const { height, width } = useWindowDimensions();
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     window.removeEventListener("scroll", onScroll);
@@ -32,28 +31,29 @@ const Homepage = (props) => {
         <div>
           <img
             src="/assets/images/i1.jpg"
-            style={{ width: width, height: width }}
+            style={{ width: "100vw", height: "100vh" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i2.jpg"
-            style={{ width: width, height: width }}
+            style={{ width: "100vw", height: "100vh" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i4.jpg"
-            style={{ width: width, height: width }}
+            style={{ width: "100vw", height: "100vh" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i3.jpg"
-            style={{ width: width, height: width }}
+            style={{ width: "100vw", height: "100vh" }}
           />
         </div>
       </Carousel>
+      <ContactUs />
     </div>
   );
 };
