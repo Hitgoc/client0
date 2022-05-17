@@ -1,7 +1,6 @@
 import React from "react";
 import Gallery from "react-grid-gallery";
-import colors from "../../theme/colors";
-import fonts from "../../theme/fonts";
+import Navbar from "../../components/Navbar";
 
 const GalleryPage = () => {
   const IMAGES = [
@@ -95,10 +94,11 @@ const GalleryPage = () => {
   return (
     //gallary
     <div>
+      <Navbar />
       <div
         style={{
           fontSize: "45px",
-          margin: "50px auto",
+          margin: "100px auto",
           width: "30%",
           textAlign: "center",
           fontWeight: "semi-bold",

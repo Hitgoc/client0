@@ -66,7 +66,16 @@ export default function ContactUs() {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography
+            sx={{
+              fontSize: 70,
+              fontFamily: "cursive",
+              fontWeight: "900",
+            }}
+            color={"#DE3163"}
+            component="h1"
+            variant="h5"
+          >
             Contact us
           </Typography>
           <Box
@@ -123,7 +132,7 @@ export default function ContactUs() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, backgroundColor: "#DE3163" }}
             >
               Submit
             </Button>

@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Homepage from "../src/Screens/Homepage";
 import styles from "../styles/Home.module.css";
+import AboutPage from "../src/Screens/AboutPage";
+import ContactUs from "../src/components/ContactUs";
+import Products from "../src/Screens/ProductsPage/Products";
 
 export default function Home() {
   return (
@@ -11,6 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Homepage />
+      <Products />
+      <AboutPage />
+      <ContactUs />
     </div>
   );
 }

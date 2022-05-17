@@ -9,10 +9,10 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = [
   { id: 1, name: "Home", href: "/" },
-  { id: 2, name: "Products", href: "/products" },
   { id: 3, name: "Gallery", href: "/gallery" },
   { id: 4, name: "About Us", href: "/about" },
   { id: 5, name: "Contact Us", href: "/contact" },
@@ -31,7 +31,7 @@ const ResponsiveAppBar = (props) => {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: props.navColor }}>
+    <AppBar sx={{ backgroundColor: "#DE3163" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -49,7 +49,7 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            PBLSP (Estd.1909 A.D.)
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -60,7 +60,9 @@ const ResponsiveAppBar = (props) => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            ></IconButton>
+            >
+              <MenuIcon />
+            </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -106,14 +108,24 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            PBLSP (Estd.1909 A.D.)
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "flex-end" },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.id}
                 onClick={() => router.push("/" + page.href)}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontWeight: "bold",
+                }}
               >
                 {page.name}
               </Button>
