@@ -31,7 +31,7 @@ const ResponsiveAppBar = (props) => {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: "#DE3163" }}>
+    <AppBar sx={{ backgroundColor: "#DE3163", zIndex: 900 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -49,7 +49,7 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            PBLSP (Estd.1909 A.D.)
+            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -96,7 +96,7 @@ const ResponsiveAppBar = (props) => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -108,7 +108,7 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            PBLSP (Estd.1909 A.D.)
+            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
           </Typography>
           <Box
             sx={{

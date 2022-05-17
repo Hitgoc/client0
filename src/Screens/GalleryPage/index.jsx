@@ -99,7 +99,7 @@ const GalleryPage = () => {
         style={{
           fontSize: "45px",
           margin: "100px auto",
-          width: "30%",
+          width: "80%",
           textAlign: "center",
           fontWeight: "semi-bold",
           color: "#DE3163",

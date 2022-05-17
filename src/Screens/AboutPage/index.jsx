@@ -2,12 +2,12 @@ import Navbar from "../../components/Navbar";
 
 function AboutPage() {
   return (
-    <div>
+    <div style={{ marginTop: 100 }}>
       <div
         style={{
           fontSize: 70,
           margin: "50px auto",
-          width: "30%",
+          width: "80%",
           textAlign: "center",
           fontWeight: "bold",
           color: "#DE3163",

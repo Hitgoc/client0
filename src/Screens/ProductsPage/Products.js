@@ -87,9 +87,8 @@ const Products = () => {
 
   return (
     <div>
-      <Container sx={{ py: 5 }}>
-        <div>
-          <div id="productLL" />
+      <Container style={{ marginTop: 100 }}>
+        <div style={{ width: "100%" }}>
           <p
             id="productsHeading"
             className="text-center mt-4 mb-4"
@@ -103,7 +102,6 @@ const Products = () => {
             Products
           </p>
           <hr style={{ border: "0.5px solid #DE3163" }} />
-          <div id="productRL" />
         </div>
 
         <MDBCard

@@ -5,29 +5,14 @@ import { Carousel } from "antd";
 import ContactUs from "../../components/ContactUs";
 
 const Homepage = (props) => {
-  // const [offset, setOffset] = useState(0);
-  // const [navColor, setNavColor] = useState("#121212");
-
-  // useEffect(() => {
-  //   const onScroll = () => setOffset(window.pageYOffset);
-  //   window.removeEventListener("scroll", onScroll);
-  //   window.addEventListener("scroll", onScroll, { passive: true });
-
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (offset > 60) {
-  //     setNavColor("#121212");
-  //   } else {
-  //     setNavColor("transparent");
-  //   }
-  // }, [offset]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div style={{ marginBottom: 30 }}>
       <Navbar />
-      <Carousel style={{ marginTop: 63 }} autoplay autoplaySpeed={3000}>
+      <Carousel style={{ marginTop: 56 }} autoplay autoplaySpeed={3000}>
         <div>
           <img
             src="/assets/images/i1.jpg"
