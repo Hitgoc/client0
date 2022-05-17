@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,9 +10,16 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Home", "Products", "Gallery", "About Us", "Contact Us"];
+const pages = [
+  { id: 1, name: "Home", href: "/" },
+  { id: 2, name: "Products", href: "/products" },
+  { id: 3, name: "Gallery", href: "/gallery" },
+  { id: 4, name: "About Us", href: "/about" },
+  { id: 5, name: "Contact Us", href: "/contact" },
+];
 
 const ResponsiveAppBar = (props) => {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -72,8 +80,11 @@ const ResponsiveAppBar = (props) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  key={page.id}
+                  onClick={() => router.push("/" + page.href)}
+                >
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -100,11 +111,11 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.id}
+                onClick={() => router.push("/" + page.href)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

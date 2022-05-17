@@ -33,14 +33,27 @@ export default function ContactUs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      fullname: data.get("fullname"),
-      email: data.get("email"),
-      contactno: data.get("contactno"),
-      message: data.get("message"),
-    });
-  };
+    var fullname = data.get("fullname");
+    var email = data.get("email");
+    var contactno = data.get("contactno");
+    var message = data.get("message");
 
+    var url =
+      "https://wa.me/918545070000?text=" +
+      "Name: " +
+      fullname +
+      "%0a" +
+      "Phone: " +
+      contactno +
+      "%0a" +
+      "Email: " +
+      email +
+      "%0a" +
+      "Message: " +
+      message;
+
+    window.open(url, "_blank").focus();
+  };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
