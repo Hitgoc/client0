@@ -38,21 +38,26 @@ export default function ContactUs() {
     var contactno = data.get("contactno");
     var message = data.get("message");
 
-    var url =
-      "https://wa.me/917618995481?text=" +
-      "Name: " +
-      fullname +
-      "%0a" +
-      "Phone: " +
-      contactno +
-      "%0a" +
-      "Email: " +
-      email +
-      "%0a" +
-      "Message: " +
-      message;
+    if (fullname && contactno && message) {
+      var url =
+        "https://wa.me/917618995481?text=" +
+        "Name: " +
+        fullname +
+        "%0a" +
+        "Phone: " +
+        contactno +
+        "%0a" +
+        "Email: " +
+        email +
+        "%0a" +
+        "Message: " +
+        message;
 
-    window.open(url, "_blank").focus();
+      window.open(url, "_blank").focus();
+    } else {
+      alert("Full Name, Contact Number, and Message cannot be empty");
+      return;
+    }
   };
   return (
     <ThemeProvider theme={theme}>
@@ -93,7 +98,6 @@ export default function ContactUs() {
                   fullWidth
                   id="fullname"
                   label="Full Name"
-                  autoFocus
                 />
               </Grid>
               <Grid item xs={12}>
