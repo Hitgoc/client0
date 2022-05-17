@@ -39,7 +39,7 @@ export default function ContactUs() {
     var message = data.get("message");
 
     var url =
-      "https://wa.me/918545070000?text=" +
+      "https://wa.me/917618995481?text=" +
       "Name: " +
       fullname +
       "%0a" +
