@@ -62,10 +62,6 @@ const Products = () => {
 
     console.log(e);
 
-    /*const imgSrc = e.target.src;
-
-    const imgName = imgSrc.split("products/")[1];*/
-
     if (e === 0) {
       setShowRajniGandhaContent(true);
       setShowAttarOilContent(false);
@@ -74,22 +70,22 @@ const Products = () => {
     }
 
     if (e === 1) {
-      setShowAttarOilContent(true);
+      setShowAttarOilContent(false);
       setShowRajniGandhaContent(false);
       setShowGulabJalContent(false);
-      setShowKewdhaContent(false);
+      setShowKewdhaContent(true);
     }
 
     if (e === 2) {
-      setShowKewdhaContent(true);
+      setShowKewdhaContent(false);
       setShowAttarOilContent(false);
-      setShowGulabJalContent(false);
+      setShowGulabJalContent(true);
       setShowRajniGandhaContent(false);
     }
 
     if (e === 3) {
-      setShowGulabJalContent(true);
-      setShowAttarOilContent(false);
+      setShowGulabJalContent(false);
+      setShowAttarOilContent(true);
       setShowKewdhaContent(false);
       setShowRajniGandhaContent(false);
     }
