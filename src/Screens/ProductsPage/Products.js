@@ -1,9 +1,11 @@
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "react-responsive-modal/styles.css";
 import { Container } from "@mui/material";
 import { MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 import { useRef, useState } from "react";
 import PhotoAlbum from "react-photo-album";
 import Modal from "react-responsive-modal";
-import { productsContent } from "./productContent/productsContent";
+import { productsContent } from "./content";
 
 const Products = () => {
   const productDimension = {
@@ -85,23 +87,27 @@ const Products = () => {
 
   return (
     <div>
-      <Container>
-        <div>
-          <div id="productLL" />
+      <Container style={{ marginTop: 100 }}>
+        <div style={{ width: "100%" }}>
           <p
             id="productsHeading"
             className="text-center mt-4 mb-4"
-            style={{ color: "red", fontSize: "70px", fontFamily: "cursive" }}
+            style={{
+              color: "#DE3163",
+              fontSize: "70px",
+              fontFamily: "cursive",
+              fontWeight: "bold",
+            }}
           >
             Products
           </p>
-          <div id="productRL" />
+          <hr style={{ border: "0.5px solid #DE3163" }} />
         </div>
 
         <MDBCard
           id="photoAlbumCard"
           style={{
-            backgroundColor: "#FF4F4F",
+            backgroundColor: "#DE3163",
           }}
         >
           <MDBCardBody>

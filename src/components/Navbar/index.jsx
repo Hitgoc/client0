@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,10 +9,17 @@ import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
 
-const pages = ["Home", "Products", "About Us", "Contact Us"];
+const pages = [
+  { id: 1, name: "Home", href: "/" },
+  { id: 3, name: "Gallery", href: "/gallery" },
+  { id: 4, name: "About Us", href: "/about" },
+  { id: 5, name: "Contact Us", href: "/contact" },
+];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -23,7 +31,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "transparent" }}>
+    <AppBar sx={{ backgroundColor: "#DE3163", zIndex: 900 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -41,7 +49,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -52,7 +60,9 @@ const ResponsiveAppBar = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            ></IconButton>
+            >
+              <MenuIcon />
+            </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -72,8 +82,11 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  key={page.id}
+                  onClick={() => router.push("/" + page.href)}
+                >
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -83,7 +96,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -95,16 +108,26 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "flex-end" },
+            }}
+          >
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                key={page.id}
+                onClick={() => router.push("/" + page.href)}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontWeight: "bold",
+                }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

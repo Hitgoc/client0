@@ -1,44 +1,45 @@
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-import Products from "./components/products";
+import ContactUs from "../../components/ContactUs";
 
-const HomePage = () => {
+const Homepage = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div style={{ backgroundColor: "#E2DEAE" }}>
+    <div style={{ marginBottom: 30 }}>
       <Navbar />
-
-      <Carousel autoplay autoplaySpeed={3000}>
+      <Carousel style={{ marginTop: 56 }} autoplay autoplaySpeed={3000}>
         <div>
           <img
             src="/assets/images/i1.jpg"
-            style={{ width: "100vw", height: "120vh" }}
+            style={{ width: "100vw", height: "auto" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i2.jpg"
-            style={{ width: "100vw", height: "120vh" }}
+            style={{ width: "100vw", height: "auto" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i4.jpg"
-            style={{ width: "100vw", height: "120vh" }}
+            style={{ width: "100vw", height: "auto" }}
           />
         </div>
         <div>
           <img
             src="/assets/images/i3.jpg"
-            style={{ width: "100vw", height: "120vh" }}
+            style={{ width: "100vw", height: "auto" }}
           />
         </div>
       </Carousel>
-      {/* Products */}
-
-      <Products />
     </div>
   );
 };
 
-export default HomePage;
+export default Homepage;
