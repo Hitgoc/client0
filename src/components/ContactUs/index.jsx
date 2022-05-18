@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
+export function Copyright(props) {
   return (
     <Typography
       variant="body2"
@@ -30,6 +30,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function ContactUs() {
+  const [noDetails, setNoDetails] = React.useState();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -39,6 +41,7 @@ export default function ContactUs() {
     var message = data.get("message");
 
     if (fullname && contactno && message) {
+      setNoDetails(false);
       var url =
         "https://wa.me/917618995481?text=" +
         "Name: " +
@@ -55,7 +58,7 @@ export default function ContactUs() {
 
       window.open(url, "_blank").focus();
     } else {
-      alert("Full Name, Contact Number, and Message cannot be empty");
+      setNoDetails(true);
       return;
     }
   };
@@ -65,7 +68,7 @@ export default function ContactUs() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 10,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -132,6 +135,14 @@ export default function ContactUs() {
                 />
               </Grid>
             </Grid>
+            {noDetails && (
+              <p
+                className="h5 text-center mt-4"
+                style={{ textAlign: "center", color: "red" }}
+              >
+                Please provide all the details.
+              </p>
+            )}
             <Button
               type="submit"
               fullWidth

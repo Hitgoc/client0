@@ -3,36 +3,46 @@ import "react-responsive-modal/styles.css";
 import { Container } from "@mui/material";
 import { MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 import { useRef, useState } from "react";
-import PhotoAlbum from "react-photo-album";
 import Modal from "react-responsive-modal";
 import { productsContent } from "./content";
+import Gallery from "react-grid-gallery";
 
 const Products = () => {
   const productDimension = {
     width: 420,
     height: 400,
+    galleryHeight: 320,
   };
 
-  const products = [
+  const IMAGES = [
     {
       src: "/assets/products/rajniGandha.jpg",
-      width: productDimension.width,
-      height: productDimension.height,
+      thumbnail: "/assets/products/rajniGandha.jpg",
+      thumbnailWidth: productDimension.width,
+      thumbnailHeight: productDimension.height,
+      caption: productsContent.rajniGandha,
     },
     {
       src: "/assets/products/kewdha.jpg",
-      width: productDimension.width,
-      height: productDimension.height,
+      thumbnail: "/assets/products/kewdha.jpg",
+      thumbnailWidth: productDimension.width,
+      thumbnailHeight: productDimension.height,
+      caption: productsContent.kewdha,
     },
+
     {
       src: "/assets/products/gulabJal.jpg",
-      width: productDimension.width,
-      height: productDimension.height,
+      thumbnail: "/assets/products/gulabJal.jpg",
+      thumbnailWidth: productDimension.width,
+      thumbnailHeight: productDimension.height,
+      caption: productsContent.gulabJal,
     },
     {
       src: "/assets/products/attarOil.jpg",
-      width: productDimension.width,
-      height: productDimension.height,
+      thumbnail: "/assets/products/attarOil.jpg",
+      thumbnailWidth: productDimension.width,
+      thumbnailHeight: productDimension.height,
+      caption: productsContent.attarOil,
     },
   ];
 
@@ -50,32 +60,34 @@ const Products = () => {
   const productClicked = (e) => {
     setModalOpen(true);
 
-    const imgSrc = e.target.src;
+    console.log(e);
 
-    const imgName = imgSrc.split("products/")[1];
+    /*const imgSrc = e.target.src;
 
-    if (imgName === "rajniGandha.jpg") {
+    const imgName = imgSrc.split("products/")[1];*/
+
+    if (e === 0) {
       setShowRajniGandhaContent(true);
       setShowAttarOilContent(false);
       setShowGulabJalContent(false);
       setShowKewdhaContent(false);
     }
 
-    if (imgName === "attarOil.jpg") {
+    if (e === 1) {
       setShowAttarOilContent(true);
       setShowRajniGandhaContent(false);
       setShowGulabJalContent(false);
       setShowKewdhaContent(false);
     }
 
-    if (imgName === "kewdha.jpg") {
+    if (e === 2) {
       setShowKewdhaContent(true);
       setShowAttarOilContent(false);
       setShowGulabJalContent(false);
       setShowRajniGandhaContent(false);
     }
 
-    if (imgName === "gulabJal.jpg") {
+    if (e === 3) {
       setShowGulabJalContent(true);
       setShowAttarOilContent(false);
       setShowKewdhaContent(false);
@@ -89,7 +101,7 @@ const Products = () => {
     <div>
       <Container style={{ marginTop: 100 }}>
         <div style={{ width: "100%" }}>
-          <p
+          <div
             id="productsHeading"
             className="text-center mt-4 mb-4"
             style={{
@@ -100,7 +112,7 @@ const Products = () => {
             }}
           >
             Products
-          </p>
+          </div>
           <hr style={{ border: "0.5px solid #DE3163" }} />
         </div>
 
@@ -111,57 +123,50 @@ const Products = () => {
           }}
         >
           <MDBCardBody>
-            <PhotoAlbum
-              layout="rows"
-              onClick={productClicked}
-              photos={products}
+            <Gallery
+              rowHeight={productDimension.galleryHeight}
+              onClickThumbnail={productClicked}
+              images={IMAGES}
             />
           </MDBCardBody>
         </MDBCard>
 
-        <Modal
-          blockScroll={false}
-          onClose={closeModal}
-          open={modalOpen}
-          center
-          ref={modalRef.current}
-        >
-          <p>
-            <div id="productContentContainer">
-              {showRajniGandhaContent && (
-                <MDBCard id="productContentCard">
-                  <MDBCardBody>
+        {modalOpen && (
+          <Modal
+            onClose={closeModal}
+            open={modalOpen}
+            center
+            ref={modalRef.current}
+          >
+            {modalOpen && (
+              <div id="productContentContainer">
+                {showRajniGandhaContent && (
+                  <div id="productContentCard">
                     <p className="h4">{productsContent.rajniGandha}</p>
-                  </MDBCardBody>
-                </MDBCard>
-              )}
+                  </div>
+                )}
 
-              {showAttarOilContent && (
-                <MDBCard id="productContentCard">
-                  <MDBCardBody>
+                {showAttarOilContent && (
+                  <div id="productContentCard">
                     <p className="h4">{productsContent.attarOil}</p>
-                  </MDBCardBody>
-                </MDBCard>
-              )}
+                  </div>
+                )}
 
-              {showKewdhaContent && (
-                <MDBCard id="productContentCard">
-                  <MDBCardBody>
+                {showKewdhaContent && (
+                  <div id="productContentCard">
                     <p className="h4">{productsContent.kewdha}</p>
-                  </MDBCardBody>
-                </MDBCard>
-              )}
+                  </div>
+                )}
 
-              {showGulabJalContent && (
-                <MDBCard id="productContentCard">
-                  <MDBCardBody>
+                {showGulabJalContent && (
+                  <div id="productContentCard">
                     <p className="h4">{productsContent.gulabJal}</p>
-                  </MDBCardBody>
-                </MDBCard>
-              )}
-            </div>
-          </p>
-        </Modal>
+                  </div>
+                )}
+              </div>
+            )}
+          </Modal>
+        )}
       </Container>
     </div>
   );

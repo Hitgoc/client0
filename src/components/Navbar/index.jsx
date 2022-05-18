@@ -31,7 +31,7 @@ const ResponsiveAppBar = (props) => {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: "#DE3163", zIndex: 900 }}>
+    <AppBar sx={{ backgroundColor: "white", zIndex: 900, color: "#DE3163" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -49,7 +49,17 @@ const ResponsiveAppBar = (props) => {
               textDecoration: "none",
             }}
           >
-            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
+            <img
+              style={{ marginTop: "5px" }}
+              src="./pblsLogo.png"
+              alt=""
+              width={50}
+              height={50}
+            />
+            &nbsp;
+            <p className="mt-3">
+              PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
+            </p>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -103,17 +113,32 @@ const ResponsiveAppBar = (props) => {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: "1px",
+              marginRight: "50px",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            PBLSP <span style={{ letterSpacing: 1 }}> (Estd.1909)</span>
+            <img
+              style={{ marginTop: "10px" }}
+              src="./pblsLogo.png"
+              alt=""
+              width={40}
+              height={40}
+            />
+            &nbsp;
+            <p style={{ marginTop: "17px" }}>
+              PBLSP <span style={{ letterSpacing: 1 }}> </span>
+            </p>
           </Typography>
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex", justifyContent: "flex-end" },
+              display: {
+                xs: "none",
+                md: "flex",
+                justifyContent: "flex-end",
+              },
             }}
           >
             {pages.map((page) => (
@@ -122,7 +147,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={() => router.push("/" + page.href)}
                 sx={{
                   my: 2,
-                  color: "white",
+                  color: "#DE3163",
                   display: "block",
                   fontWeight: "bold",
                 }}

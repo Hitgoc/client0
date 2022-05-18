@@ -1,3 +1,4 @@
+import { Copyright } from "@mui/icons-material";
 import React from "react";
 import Gallery from "react-grid-gallery";
 import Navbar from "../../components/Navbar";
